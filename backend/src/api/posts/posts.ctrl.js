@@ -6,6 +6,16 @@ const {ObjectId} = mongoose.Types;
 
 
 
+
+export const storage = async(ctx, next) =>{
+    const { fieldname, originalname, encoding, mimetype, destination, filename, path, size } = ctx.request.file
+    const { name } = ctx.request.body;
+
+
+    ctx.body = {ok: true, data: "Single Upload Ok"}
+    
+}
+
 //중복이 발생할 수 있는 부분은 미들웨어로 따로 만들어서 동작하게 할 수 있다.
 export const getPostById = async(ctx, next) =>{
     const {id} =ctx.params;
